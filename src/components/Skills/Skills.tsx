@@ -26,36 +26,48 @@ import git from '../../assets/images/git.jpg'
 import java from '../../assets/images/java.jpg'
 import linux from '../../assets/images/linux.jpg'
 import photoshop from '../../assets/images/photoshop.jpg'
+import { useState } from 'react'
 
 const Skills = () => {
+    const skills = [
+        { text: 'Node.js', image: nodejs },
+        { text: 'Angular', image: angular },
+        { text: 'React', image: react },
+        { text: 'HTML', image: html },
+        { text: 'CSS', image: css },
+        { text: 'JavaScript', image: javascript },
+        { text: 'TypeScript', image: typescript },
+        { text: 'Flutter', image: flutter },
+        { text: 'MongoDB', image: mongodb },
+        { text: 'MySQL', image: mysql },
+        { text: 'PostgreSQL', image: postgresql },
+        { text: 'Sublime Text', image: sublime },
+        { text: 'Microsoft Visual Studio', image: vs },
+        { text: 'Visual Studio Code', image: vscode },
+        { text: 'Apigee API Management', image: apigee },
+        { text: 'Concourse CI', image: concourse },
+        { text: 'Heroku', image: heroku },
+        { text: 'Jira', image: jira },
+        { text: 'Pivotal Cloud Foundry', image: pcf },
+        { text: 'ServiceNOW', image: servicenow },
+        { text: 'Bash Scripting', image: bash },
+        { text: 'C++', image: cpp },
+        { text: 'Git', image: git },
+        { text: 'Java', image: java },
+        { text: 'Linux/UNIX', image: linux },
+        { text: 'Adobe Photoshop', image: photoshop }
+    ]
+    const [wiggleIndex, setWiggleIndex] = useState(0)
+    const sequence = [0, 2, 4, 9, 20, 16, 3, 19, 12, 18, 24, 22, 5, 7, 15, 10, 23, 21, 1, 17, 6, 8, 11, 13, 25, 14] // Hardcoded as Math.random glitches out for some reason
+    const timeOuts = [1000, 2000, 3000, 4000, 5000, 5000, 5000, 4000, 3000, 2000, 3000, 4000, 5000, 2000] // As above
+
+    setTimeout(() => {
+        setWiggleIndex(wiggleIndex < skills.length - 1 ? wiggleIndex + 1 : 0)
+    }, timeOuts[wiggleIndex % timeOuts.length])
+
     return (
         <div className="skillGrid">
-            <Skill alt="Node.js" image={nodejs}></Skill>
-            <Skill alt="Angular" image={angular}></Skill>
-            <Skill alt="React" image={react}></Skill>
-            <Skill alt="HTML" image={html}></Skill>
-            <Skill alt="CSS" image={css}></Skill>
-            <Skill alt="JavaScript" image={javascript}></Skill>
-            <Skill alt="TypeScript" image={typescript}></Skill>
-            <Skill alt="Flutter" image={flutter}></Skill>
-            <Skill alt="MongoDB" image={mongodb}></Skill>
-            <Skill alt="MySQL" image={mysql}></Skill>
-            <Skill alt="PostgreSQL" image={postgresql}></Skill>
-            <Skill alt="Sublime Text" image={sublime}></Skill>
-            <Skill alt="Microsoft Visual Studio" image={vs}></Skill>
-            <Skill alt="Visual Studio Code" image={vscode}></Skill>
-            <Skill alt="Apigee API Management" image={apigee}></Skill>
-            <Skill alt="Concourse CI" image={concourse}></Skill>
-            <Skill alt="Heroku" image={heroku}></Skill>
-            <Skill alt="Jira" image={jira}></Skill>
-            <Skill alt="Pivotal Cloud Foundry" image={pcf}></Skill>
-            <Skill alt="ServiceNOW" image={servicenow}></Skill>
-            <Skill alt="Bash Scripting" image={bash}></Skill>
-            <Skill alt="C++" image={cpp}></Skill>
-            <Skill alt="Git" image={git}></Skill>
-            <Skill alt="Java" image={java}></Skill>
-            <Skill alt="Linux/UNIX" image={linux}></Skill>
-            <Skill alt="Adobe Photoshop" image={photoshop}></Skill>
+            {skills.map((skill, index) => <Skill alt={skill.text} image={skill.image} wiggle={index === sequence[wiggleIndex]}></Skill>)}
         </div>
     );
 };

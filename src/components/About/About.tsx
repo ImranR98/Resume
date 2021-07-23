@@ -25,7 +25,7 @@ const About = () => {
 
     setTimeout(() => {
         activeString === strings.length - 1 ? setActiveString(0) : setActiveString(activeString + 1)
-    }, 7000)
+    }, 4000)
 
     return (
         <div id="about" className={"about flexColumn centerFlex stdPadding shadow2 col1" + (compact ? " compact" : "")}>
@@ -35,6 +35,7 @@ const About = () => {
                     <p>Hi</p>
                     <h1>I'm <span className="accent">Imran Remtulla</span></h1>
                     <div className="typewriter">
+                        &nbsp;
                         <WindupChildren>
                             <Pace ms={50}>{strings[activeString]}&nbsp;</Pace>
                         </WindupChildren>
