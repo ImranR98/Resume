@@ -63,9 +63,7 @@ const App = () => {
             subtitle="Online photo sharing platform"
             imageBG="4458c0"
           >
-            <small><a href="https://github.com/ImranR98/SnapSpace" target="_blank" rel="noreferrer">Source</a>
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="https://snapspace.imranr.dev/" target="_blank" rel="noreferrer">Live</a></small>
+            <small><a href="https://github.com/ImranR98/SnapSpace" target="_blank" rel="noreferrer">Source</a></small>
           </Item>
           <Item
             image={tinystock}
@@ -82,8 +80,8 @@ const App = () => {
             imageBG="f44236"
           >
             <small><a href="https://github.com/ImranR98/Tuma" target="_blank" rel="noreferrer">Source</a>
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="https://play.google.com/store/apps/details?id=dev.imranr.tuma" target="_blank" rel="noreferrer">Live</a></small>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="https://play.google.com/store/apps/details?id=dev.imranr.tuma" target="_blank" rel="noreferrer">Live</a></small>
           </Item>
         </Section>
         <Section id="skills" title="Skills" className="skills col5">
