@@ -6,6 +6,7 @@ import Item from './components/Section/Item/Item'
 import manulife from './assets/images/manulife.png'
 import seneca from './assets/images/seneca.png'
 import ryerson from './assets/images/ryerson.png'
+import andika from './assets/images/andika.png'
 import snapspace from './assets/images/snapspace.png'
 import tinystock from './assets/images/tinystock.png'
 import tuma from './assets/images/tuma.png'
@@ -57,6 +58,15 @@ const App = () => {
           </Item>
         </Section>
         <Section id="projects" title="Projects" className="projects col4">
+          <Item
+            image={andika}
+            title="Andika"
+            subtitle="Note taking Web App"
+            imageBG="f44336"
+          >
+            <small><a href="https://github.com/ImranR98/Andika" target="_blank" rel="noreferrer">Source</a></small>&nbsp;&nbsp;&nbsp;
+            <small><a href="https://andika1.herokuapp.com" target="_blank" rel="noreferrer">Live</a></small>
+          </Item>
           <Item
             image={snapspace}
             title="SnapSpace"
