@@ -27,6 +27,7 @@ import java from '../../assets/images/java.jpg'
 import linux from '../../assets/images/linux.jpg'
 import photoshop from '../../assets/images/photoshop.jpg'
 import { useState } from 'react'
+import { toast } from 'react-toastify'
 
 const Skills = () => {
     const skills = [
@@ -57,9 +58,23 @@ const Skills = () => {
         { text: 'Linux/UNIX', image: linux },
         { text: 'Adobe Photoshop', image: photoshop }
     ]
+    const [wiggleEnabled, setWiggleEnabled] = useState(true)
     const [wiggleIndex, setWiggleIndex] = useState(0)
     const sequence = [0, 2, 4, 9, 20, 16, 3, 19, 12, 18, 24, 22, 5, 7, 15, 10, 23, 21, 1, 17, 6, 8, 11, 13, 25, 14] // Hardcoded as Math.random glitches out for some reason
     const timeOuts = [1000, 2000, 3000, 4000, 5000, 5000, 5000, 4000, 3000, 2000, 3000, 4000, 5000, 2000] // As above
+
+    const skillClicked = (skillString: string) => {
+        toast(skillString, {
+            position: "bottom-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        })
+        if (wiggleEnabled) setWiggleEnabled(false) // Once the user knows that skills are clickable, stop wiggling
+    }
 
     setTimeout(() => {
         setWiggleIndex(wiggleIndex < skills.length - 1 ? wiggleIndex + 1 : 0)
@@ -67,7 +82,7 @@ const Skills = () => {
 
     return (
         <div className="skillGrid">
-            {skills.map((skill, index) => <Skill alt={skill.text} image={skill.image} wiggle={index === sequence[wiggleIndex]}></Skill>)}
+            {skills.map((skill, index) => <Skill alt={skill.text} image={skill.image} wiggle={index === sequence[wiggleIndex] && wiggleEnabled} onclick={skillClicked}></Skill>)}
         </div>
     );
 };
